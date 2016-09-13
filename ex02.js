@@ -19,7 +19,13 @@ var groups = [
 ];
 
 var group = function(groups){
-  /* your code here */
+  var disprove = _.filter(groups, {'confirmed': false});
+  var confirmed = _.filter(groups, {'confirmed': true});
+  disprove = _.map(disprove, 'id');
+  confirmed = _.map(confirmed, 'id');
+  disprove = _.chunk(disprove, 2);
+  confirmed = _.chunk(confirmed, 2);
+  return _.concat(confirmed, disprove);
 }
 
 console.log( group(groups) );

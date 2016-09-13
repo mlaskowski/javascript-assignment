@@ -10,16 +10,16 @@ You only need to check that the ids match.
       { id: 2 },
       { id: 3 }
     ]
-    
+
     // `checkUsersValid` is the function you'll define
     var testAllValid = checkUsersValid(goodUsers)
-    
+
     testAllValid([
       { id: 2 },
       { id: 1 }
     ])
     // => true
-    
+
     testAllValid([
       { id: 2 },
       { id: 4 },
@@ -33,3 +33,35 @@ You only need to check that the ids match.
 
 Tip: you can use array#some and Array#every or _.includes
 */
+var goodUsers = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 }
+];
+
+var testAllValid = function checkUsersValid(arrayToCheck) {
+  var arrayOfState = arrayToCheck.map(checkId);
+  return arrayOfState.every(isAllTrue);
+};
+
+function checkId(id) {
+  var resoult = goodUsers.some(function (element) {
+    return (element.id == id.id);
+  });
+	return resoult;
+};
+
+function isAllTrue(element) {
+  return (element === true);
+}
+
+console.log(testAllValid([
+  { id: 2 },
+  { id: 1 }
+]));
+
+console.log(testAllValid([
+  { id: 2 },
+  { id: 4 },
+  { id: 1 }
+]));

@@ -12,11 +12,28 @@ The function should return an array containing the messages themselves, without 
     {
       message: 'Esse id amet quis eu esse aute officia ipsum.' // random
     }
-  
+
   Hint - try chaining some Array methods!
 
 */
+var mes = [ {
+    message: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1' //50
+  }, {
+    message: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12' //51
+  }, {
+    message: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' //49
+} ];
 
-function getShortMessages(){
-  /* your code */
+function isLongEnough (element, index, array) {
+ return (element.message.length < 50);
 }
+
+function getShortMessages(massages){
+  var result = [];
+  result = massages.filter(isLongEnough).map(function(message) {
+   return message.message;
+  });
+  return result;
+}
+
+console.log(getShortMessages(mes));

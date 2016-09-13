@@ -8,11 +8,11 @@ Create a spy that keeps track of how many times a function is called.
 ## Example
 
     var spy = Spy(console, 'error')
-    
+
     console.error('calling console.error')
     console.error('calling console.error')
     console.error('calling console.error')
-    
+
     console.log(spy.count) // 3
 
 ## Arguments

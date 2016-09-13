@@ -4,9 +4,11 @@
 // * Do not create any unnecessary functions e.g. helpers.
 
 function doubleAll(numbers) {
-  var result = []
-  for (var i = 0; i < numbers.length; i++) {
-    result.push(numbers[i] * 2)
-  }
-  return result
+  var result = [];
+  result = numbers.map(function(number){
+    return number * 2;
+  });
+  return result;
 }
+
+console.log(doubleAll([1,2,3]));

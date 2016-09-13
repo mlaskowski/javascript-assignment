@@ -26,7 +26,7 @@ var nicePrint = function(chr){
 
 /* --- */
 
-var youngest = _.flow( /*  your code */ );
+var youngest = _.flow( );
 
-console.log( youngest(users) ); 
+console.log( youngest(users) );
 // pebbles is 1
